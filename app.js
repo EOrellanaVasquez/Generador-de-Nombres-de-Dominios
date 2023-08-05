@@ -1,17 +1,21 @@
-let pronoun = ['yo', 'tú', 'él', 'nosotros', 'vosotros', 'ellos'];
-let noun = ['mago', 'mapache', 'árbol', 'invocador', 'sniper', 'camper', 'silla', 'taza'];
-let adj = ['super', 'alto', 'hondo', 'cansado', 'bello', 'redondo', 'mágico', 'astral'];
+let pronoun = ['yo', 'tu', 'el', 'nosotros', 'vosotros', 'ellos'];
+let noun = ['mago', 'mapache', 'arbol', 'invocador', 'sniper', 'camper', 'silla', 'taza'];
+let adj = ['super', 'alto', 'hondo', 'cansado', 'bello', 'redondo', 'magico', 'astral'];
 let ext = ['.cl', '.com', '.com.ar', '.com.nz'];
 
+function domainNameGenerator (pronoun, noun, adj, ext){
 
-    for (let comp1 = 0; comp1 <= pronoun.length; comp1++) {
-        for (let comp2 = 0; comp2 <= noun.length; comp2++) {
-            for (let comp3 = 0; comp3 <= adj.length; comp3++) {
-                for (let comp4 = 0; comp4 <= ext.length; comp4++) {
+    let numPronoun = Math.floor(Math.random() * pronoun.length);
+    let numNoun = Math.floor(Math.random() * noun.length);
+    let numAdj = Math.floor(Math.random() * adj.length);
+    let numExt = Math.floor(Math.random() * ext.length);
 
-                    console.log(pronoun[comp1] + noun[comp2] + adj[comp3] + ext[comp4]);
-                }
-            }
-        }
-    }
+    return pronoun[numPronoun] + noun[numNoun] + adj[numAdj] + ext[numExt];
+}
 
+function onLoad(){
+    let domainGen = document.getElementById('domainGenerator');
+    domainGen.innerHTML = domainNameGenerator(pronoun, noun, adj, ext);
+}
+
+window.onload = onLoad;
