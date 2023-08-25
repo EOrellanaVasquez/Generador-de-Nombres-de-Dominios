@@ -1,2 +1,1 @@
-# Generador de Nombres de Dominios
- proyecto 4Geeks
+Domain names generator with Javascript
